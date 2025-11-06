@@ -6,13 +6,35 @@
 	<title>React DOM Exercicio 1</title>
 </head>
 <body>
-	<nav class="menu">
-		<ul>
-			<li><a href="index.html">Página inicial</a></li>
-			<li><a href="campus.html">Campus</a></li>
-			<li><a href="graduacao.html">Graduação</a></li>
-			<li><a href="posgraduacao.html">Pós Graduação</a></li>
-		</ul>
-	</nav>
+	<div id="root"></div>
+
+	<script>
+		// Cria a estrutura React
+		const menu = React.createElement(
+			"nav",
+			{ className: "menu" },
+			React.createElement(
+				"ul",
+				null,
+				React.createElement("li", null,
+					React.createElement("a", { href: "index.html" }, "Página inicial")
+				),
+				React.createElement("li", null,
+					React.createElement("a", { href: "campus.html" }, "Campus")
+				),
+				React.createElement("li", null,
+					React.createElement("a", { href: "graduacao.html" }, "Cursos de Graduação")
+				),
+				React.createElement("li", null,
+					React.createElement("a", { href: "posgraduacao.html" }, "Cursos de Pós Graduação")
+				)
+			)
+		);
+
+		// Renderiza na página
+		const root = ReactDOM.createRoot(document.getElementById("root"));
+		root.render(menu);
+	</script>
 </body>
 </html>
+
